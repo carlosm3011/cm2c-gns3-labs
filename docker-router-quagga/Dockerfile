@@ -16,7 +16,7 @@ RUN touch /etc/quagga/babeld.conf && \
 RUN echo "export VTYSH_PAGER=more" >>  /etc/bash.bashrc
 RUN echo "VTYSH_PAGER=more" >> /etc/environment
 RUN chown -R quagga /etc/quagga
-ADD start-quagga.sh /start_quagga.sh
+ADD start_quagga.sh /start_quagga.sh
 RUN chmod a+x start_quagga.sh
 VOLUME ["/etc/"]
 ENTRYPOINT ["/start_quagga.sh"]
