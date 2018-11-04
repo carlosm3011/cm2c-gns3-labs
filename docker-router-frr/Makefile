@@ -7,9 +7,9 @@ help:
 build:
 	docker build -t cmrouter_frr:v1 .
 
-run:
+run: build
 	docker run -ti cmrouter_frr:v1
 
-shell:
+shell: build
 	docker run -ti --entrypoint "/bin/sh" cmrouter_frr:v1
 
