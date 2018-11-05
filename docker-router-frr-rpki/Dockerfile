@@ -1,7 +1,7 @@
 FROM bitnami/minideb:latest
 RUN apt-get -y update 
 # comment out for prod release
-RUN apt-get -y install vim-tiny procps
+RUN apt-get -y install vim-tiny procps iputils-ping traceroute
 ##
 WORKDIR /root
 ADD librtr0_0.6.1.0_amd64.deb /root/librtr0_0.6.1.0_amd64.deb
