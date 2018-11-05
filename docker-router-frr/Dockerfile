@@ -16,7 +16,8 @@ RUN echo "VTYSH_PAGER=more" >> /etc/environment
 RUN rm /etc/frr/daemons && rm /etc/frr/daemons.conf
 ADD daemons /etc/frr/daemons
 ADD daemons.conf /etc/frr/daemons.conf
-RUN chown -Rv frr.frr /etc/frr/*
+RUN chown -Rv frr.frr /etc/frr/* 
+RUN chown frr.frr /etc/frr
 ADD start_frr.sh /start_frr.sh
 RUN chmod a+x start_frr.sh
 VOLUME ["/etc/"]

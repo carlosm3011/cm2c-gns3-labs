@@ -9,6 +9,7 @@
 #/usr/sbin/babeld -d -f /etc/quagga/babeld.conf
 #/usr/sbin/isisd -d -f /etc/quagga/isisd.conf
 #vtysh
+chown frr.frr /etc/frr
 chown frr.frr /etc/frr/*
 export PS1="\h frr>"
 /etc/init.d/frr start

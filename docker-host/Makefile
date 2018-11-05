@@ -5,5 +5,5 @@ help:
 	-echo "Targets are help, build"
 	
 build:
-	docker build -t cmrouter_host:v1 .
+	docker build -t lacnic_gns3_host:v1 .
 

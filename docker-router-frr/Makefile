@@ -2,14 +2,14 @@
 #
 
 help:
-	-echo "Targets are help, build"
+	-echo "Targets are help, build, run, shell"
 	
 build:
-	docker build -t cmrouter_frr:v1 .
+	docker build -t lacnic_gns3_frr:v2 .
 
 run: build
-	docker run -ti cmrouter_frr:v1
+	docker run -ti lacnic_gns3_frr:v2
 
 shell: build
-	docker run -ti --entrypoint "/bin/sh" cmrouter_frr:v1
+	docker run -ti --entrypoint "/bin/sh" lacnic_gns3_frr:v2
 
