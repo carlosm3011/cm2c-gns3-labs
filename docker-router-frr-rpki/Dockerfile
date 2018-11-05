@@ -14,11 +14,12 @@ RUN apt-get -y --fix-broken install
 #
 ADD daemons /etc/frr/daemons
 ADD daemons.conf /etc/frr/daemons.conf
-RUN touch /etc/frr/zebra.conf && touch /etc/frr/bgpd.conf
+RUN touch /etc/frr/zebra.conf && touch /etc/frr/bgpd.conf && touch /etc/frr/ospf6d.conf && touch /etc/frr/ospfd.conf
 RUN chown -Rv frr.frr /etc/frr
 # 
 ADD start_frr_rpki.sh /start_frr_rpki.sh
-RUN chmod a+x /start_frr_rpki.sh
+ADD frr /etc/init.d/frr
+RUN chmod a+x /start_frr_rpki.sh && chmod a+x /etc/init.d/frr
 #
 VOLUME ["/etc/"]
 ENTRYPOINT ["/start_frr_rpki.sh"]
