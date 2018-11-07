@@ -8,5 +8,5 @@ ADD rpki-validator-app-2.25-dist.tar.gz /
 WORKDIR /
 #RUN tar xzvf rpki-validator-app-2.25-dist.tar.gz && cd rpki-validator-app-2.25-dist
 #RUN chown -Rv lighttpd /var/www
-VOLUME ["/etc/"]
+VOLUME ["/rpki-validator-app-2.25/data/"]
 ENTRYPOINT ["/start_rpki_cache.sh"]
