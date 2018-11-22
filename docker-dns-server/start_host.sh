@@ -1,3 +1,6 @@
 #!/bin/sh
 # lighttpd -f /etc/lighttpd/lighttpd.conf
-sh
+while true
+do
+	sh
+done
