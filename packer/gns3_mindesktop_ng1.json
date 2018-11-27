@@ -1,0 +1,50 @@
+{
+  "variables": {
+  	"vm_description": "Minimal GNS3/Gnome desktop",
+  	"vm_version": "1"
+  },
+  "builders": [{
+	  "type": "virtualbox-ovf",
+	  "export_opts":
+	  	[
+	    	"--manifest",
+	    	"--vsys", "0",
+	    	"--description", "{{user `vm_description`}}",
+	    	"--version", "{{user `vm_version`}}"
+	  	],
+	  "format": "ova",
+	  "source_path": "ubuntu-1804-gnome-mini.ova",
+	  "ssh_username": "vagrant",
+	  "ssh_password": "vagrant",
+	  "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now"  	
+  }],
+  "provisioners": [{
+  	"type": "shell",
+  	"script": "get_ssh_key.sh"
+  },
+  {
+  	"type": "shell",
+	"script": "update_packages.sh",
+	"execute_command": "echo 'vagrant' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
+  },
+  {
+  	"type": "shell",
+	"script": "install_min_gnome.sh",
+	"execute_command": "echo 'vagrant' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
+  },
+	
+	{
+  "type": "shell",
+	"script": "setup_gns3.sh",
+	"execute_command": "echo 'vagrant' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
+  },
+	{
+  	"type": "shell",
+	"script": "zero_free_space.sh",
+	"execute_command": "echo 'vagrant' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
+  }],
+  "post-processors": [{
+  "type": "vagrant",
+  "keep_input_artifact": true
+}]
+}
