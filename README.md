@@ -1,4 +1,4 @@
-# Docker Elements for GNS3 Labs
+# Reproducible VM and Docker Elements for GNS3 Labs
 
 **Author**: {guillermo,carlos}@lacnic.net, November 2018
 
