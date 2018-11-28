@@ -10,6 +10,8 @@
 
 3. Docker FRR Router
 
+4. Ubuntu Mate Desktop with Virtualbox guest extensions and GNS3 pre-installed
+
 ## Installation
 
 ### Pre-requisites
